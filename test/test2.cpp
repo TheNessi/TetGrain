@@ -25,5 +25,6 @@ int main(int argc, char** argv)
 	std::cout << "Number of points in model: " << mesh.getVerticesCount() << "\n";
 	std::cout << "Number of facets in surface: " << mesh.getTrianglesCount() << "\n";
 
+	system("pause");
 	return 0;
 }
