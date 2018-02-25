@@ -36,3 +36,7 @@ CMakeLists.txt.user
 *.exe
 *.out
 *.app
+
+
+#No compiled files
+convert

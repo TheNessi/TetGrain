@@ -23,6 +23,16 @@ set(SOURCE_EXE
     src/common.h
     src/common.cpp)
 
+set(SOURCE_EXE
+    src/grainmesh.h
+    src/grainmesh.cpp
+    src/iotetgen.h
+    src/iotetgen.cpp
+    src/common.h
+    src/common.cpp)
+
+add_subdirectory (test)
+
 set(SOURCE_NETGEN
 	src/netgenadaptor.h
 	src/netgenadaptor.cpp)
