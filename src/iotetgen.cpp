@@ -11,6 +11,7 @@ int grain::readNodeFile(std::string filename, GrainMesh * mesh)
     fin >> trash;
     fin >> trash;
     fin >> trash;
+
     std::vector<vec3d> newPoints(pCount);
     std::vector<char> newPLabels(pCount);
     for (int i = 0; i < pCount; i++)

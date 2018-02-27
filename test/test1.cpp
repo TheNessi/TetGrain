@@ -1,20 +1,26 @@
 #include "common.h"
 #include "grainmesh.h"
+#include "iotetgen.h"
+#include <iostream>
+#include <vector>
 
 using grain::GrainMesh;
+using namespace grain;
+using namespace std;
 
 int main(int argc, char** argv)
 {
 	GrainMesh gmsh;
 	
 	// Geerate stub tetrahedron 
-	gmsh.makeStubTetra();
+	//gmsh.makeStubTetra();
+	
+	
+	readNodeFile("D:\study\Graphics\Meshes\TetGrain\data\cube.node", &gmsh);
+	readFaceFile("D:\study\Graphics\Meshes\TetGrain\data\cube.face", &gmsh);
+	//saveEleFile("stubtetra.elle", &gmsh);
 
-	// Check number of vertices and facets in tetrahedron
-	if (gmsh.getVerticesCount() != 4)
-		return 1;
-	if (gmsh.getTrianglesCount() != 4)
-		return 2;
-
+	cout << gmsh.getVerticesCount()<< endl;
+	system("pause");
     return 0;
 }

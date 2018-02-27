@@ -6,7 +6,7 @@ PROJECT (TetGrain CXX)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 # Static / dynamic library
-option(BUILD_STATIC "BUILD STATIC LIBRARY" ON) 
+option(BUILD_STATIC "BUILD STATIC LIBRARY" OFF) 
 
 # Testing options
 option(USE_TESTS "ENABLE TESTS" OFF)
@@ -52,9 +52,6 @@ else()
 	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 	add_library(TetGrain SHARED ${SOURCE_EXE} ${SOURCE_NETGEN} ${SOURCE_CGAL})
 endif()
-
-#use test files
-add_subdirectory(test)
 
 if(USE_TESTS)
 	add_subdirectory(test build/test)
