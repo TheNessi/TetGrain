@@ -13,13 +13,14 @@ int main(int argc, char** argv)
 	GrainMesh gmsh;
 	
 	// Geerate stub tetrahedron 
-	//gmsh.makeStubTetra();
+    gmsh.makeStubTetra();
 	
 	
-	readNodeFile("D:\study\Graphics\Meshes\TetGrain\data\cube.node", &gmsh);
-	readFaceFile("D:\study\Graphics\Meshes\TetGrain\data\cube.face", &gmsh);
-	//saveEleFile("stubtetra.elle", &gmsh);
-
+	//readNodeFile("D:\study\Graphics\Meshes\TetGrain\data\cube.node", &gmsh);
+	//readFaceFile("D:\study\Graphics\Meshes\TetGrain\data\cube.face", &gmsh);
+	saveEleFile("stubtetra.ele", &gmsh);
+	saveFaceFile("stubtetra.face", &gmsh);
+	saveNodeFile("stubtetra.node", &gmsh);
 	cout << gmsh.getVerticesCount()<< endl;
 	system("pause");
     return 0;

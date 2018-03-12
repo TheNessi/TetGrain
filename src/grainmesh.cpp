@@ -100,10 +100,38 @@ void grain::GrainMesh::makeStubTetra()
 	vertices.at(2).x = 0.0; vertices.at(2).y = 1.0; vertices.at(2).z = 0.0;
 	vertices.at(3).x = 0.0; vertices.at(3).y = 0.0; vertices.at(3).z = 1.0;
 
+	verticesLabels.clear();
+
+	verticesLabels = std::vector<char>(4);
+
+	verticesLabels.at(0) = '1';
+	verticesLabels.at(1) = '1';
+	verticesLabels.at(2) = '1';
+	verticesLabels.at(3) = '1';
+
 	triangles.clear();
 	triangles = std::vector<vec3i>(4);
 	triangles.at(0).x = 0; triangles.at(0).y = 1; triangles.at(0).z = 3;
 	triangles.at(1).x = 0; triangles.at(1).y = 2; triangles.at(1).z = 1;
 	triangles.at(2).x = 0; triangles.at(2).y = 3; triangles.at(2).z = 2;
 	triangles.at(3).x = 1; triangles.at(3).y = 2; triangles.at(3).z = 3;
+
+	trianglesLabels.clear();
+	trianglesLabels = std::vector<char>(4);
+
+	trianglesLabels.at(0) = '1';
+	trianglesLabels.at(1) = '1';
+	trianglesLabels.at(2) = '1';
+	trianglesLabels.at(3) = '1';
+
+	tetra.clear();
+	tetra = std::vector<vec4i>(1);
+	tetra.at(0).x = 0; tetra.at(0).y = 1; tetra.at(0).z = 2; tetra.at(0).w = 3;
+
+
+	tetraLabels.clear();
+	tetraLabels = std::vector<char>(1);
+
+	tetraLabels.at(0) = '1';
+	
 }
