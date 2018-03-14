@@ -23,7 +23,6 @@ int main(int argc, char** argv)
 
 	vector<vec3d> newPoints(pCount);
 
-
 	for (int i = 0; i < pCount; i++)
 	{
 		fin >> newPoints[i].x
@@ -47,7 +46,6 @@ int main(int argc, char** argv)
 		newEdges[i+1].x = newEdges[i].y;
 		newEdges[i+1].y = newEdges[i].x;
 	}
-
 
 
 	fin >> trash;
@@ -88,25 +86,11 @@ int main(int argc, char** argv)
 	}
 	
 
-	vector<vec3i> Faces(fCount);
-
-	for (int i = 0; i < fCount; i++)
-	{
-	
-	}
-
-
 	gmsh.setTriangles(newFaces);
 	gmsh.setTetra(newTetra);
 
-	saveNodeFile("test.node", &gmsh);
-	saveFaceFile("test.face", &gmsh);
-	saveEleFile("test.ele", &gmsh);
 
 	fin.close();
 
-
-	
-	system("pause");
     return 0;
 }
