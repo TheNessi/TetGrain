@@ -7,6 +7,10 @@
 // TypeDefs //
 typedef int Point4i[4];
 
+struct vec2i
+{
+	int x, y;
+};
 struct vec3d
 {   double x,y,z;   };
 struct vec3i

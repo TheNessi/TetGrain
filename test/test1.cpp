@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 {
 	GrainMesh gmsh;
 
-	ifstream fin("test1.ovm", std::ifstream::in);
+	ifstream fin("test1.ovm", ifstream::in);
 	int fCount = 0;
 	char trash[50] = "";
 
@@ -21,22 +21,58 @@ int main(int argc, char** argv)
 	fin >> trash;
 	fin >> fCount;
 
-	std::vector<vec3d> newPoints(fCount);
-	std::vector<char> newPLabels(fCount);
+	vector<vec3d> newPoints(fCount);
+
+
+	for (int i = 0; i < fCount; i++)
+	{
+		fin >> newPoints[i].x
+			>> newPoints[i].y
+			>> newPoints[i].z;
+	}
+
+	gmsh.setVertices(newPoints);
+
+	fin >> trash;
+	fin >> fCount;
+	
+	vector<vec2i> newEdges(fCount);
+
+	for (int i = 0; i < fCount; i++)
+	{
+		fin >> newEdges[i].x
+			>> newEdges[i].y;
+	}
+
+	fin >> trash;
+	fin >> fCount;
+	vector<vec3i> newFaces(fCount);
 
 	for (int i = 0; i < fCount; i++)
 	{
 		fin >> trash
-			>> newPoints[i].x
-			>> newPoints[i].y
-			>> newPoints[i].z
-			>> newPLabels[i];
+			>> newFaces[i].x
+			>> newFaces[i].y
+			>> newFaces[i].z;
 	}
 
-	gmsh.setVertices(newPoints);
-	gmsh.setVerticesLabels(newPLabels);
+	fin >> trash;
+	fin >> fCount;
+
+	vector<vec4i> newTetra(fCount);
+
+	for (int i = 0; i < fCount; i++)
+	{
+		fin >> trash
+			>> newTetra[i].x
+			>> newTetra[i].y
+			>> newTetra[i].z
+			>> newTetra[i].w;
+	}
+
 
 	fin.close();
+
 
 	cout << gmsh.getVerticesCount() << endl;
 	system("pause");
