@@ -132,6 +132,6 @@ void grain::GrainMesh::makeStubTetra()
 	tetraLabels.clear();
 	tetraLabels = std::vector<char>(1);
 
-	tetraLabels.at(0) = '1';
+	tetraLabels.at(0) = '1'; 
 	
 }

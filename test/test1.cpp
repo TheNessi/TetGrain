@@ -61,7 +61,10 @@ int main(int argc, char** argv)
 			>> newFaces[i].x
 			>> newFaces[i].y
 			>> newFaces[i].z;
-		
+
+		newFaces[i].x = newEdges[newFaces[i].x].x;
+		newFaces[i].y = newEdges[newFaces[i].y].x;
+		newFaces[i].z = newEdges[newFaces[i].z].x;
 
 	}
 
@@ -77,18 +80,31 @@ int main(int argc, char** argv)
 			>> newTetra[i].y
 			>> newTetra[i].z
 			>> newTetra[i].w;
+
+		newTetra[i].x = newTetra[i].x / 2;
+		newTetra[i].y = newTetra[i].y / 2;
+		newTetra[i].z = newTetra[i].z / 2;
+		newTetra[i].w = newTetra[i].w / 2;
 	}
 	
+
+	vector<vec3i> Faces(fCount);
+
 	for (int i = 0; i < fCount; i++)
 	{
-		cout << "Face number: " << i << endl;
-		cout << " |1: " << newEdges[newFaces[i].x].x << " " << newEdges[newFaces[i].x].y
-			<< " |2: " << newEdges[newFaces[i].y].x << " " << newEdges[newFaces[i].y].y
-			<< " |3: " << newEdges[newFaces[i].z].x << " " << newEdges[newFaces[i].z].y << endl;
-		cout << "_______________"<< endl;
+	
 	}
 
+
+	gmsh.setTriangles(newFaces);
+	gmsh.setTetra(newTetra);
+
+	saveNodeFile("test.node", &gmsh);
+	saveFaceFile("test.face", &gmsh);
+	saveEleFile("test.ele", &gmsh);
+
 	fin.close();
+
 
 	
 	system("pause");
