@@ -3,31 +3,6 @@
 
 int grain::readNodeFile(std::string filename, GrainMesh * mesh)
 {
-<<<<<<< HEAD
-    std::ifstream fin(filename, std::ifstream::in);
-    int pCount = 0;
-    int trash = 0;
-    fin >> pCount;
-    fin >> trash;
-    fin >> trash;
-    fin >> trash;
-    fin >> trash;
-
-    std::vector<vec3d> newPoints(pCount);
-    std::vector<char> newPLabels(pCount);
-    for (int i = 0; i < pCount; i++)
-    {
-        fin >> trash
-                >> newPoints[i].x
-                >> newPoints[i].y
-                >> newPoints[i].z
-                >> newPLabels[i];
-    }
-    fin.close();
-    mesh->setVertices(newPoints);
-    mesh->setVerticesLabels(newPLabels);
-    return 0;
-=======
 	std::ifstream fin(filename, std::ifstream::in);
 	int pCount = 0;
 	int trash = 0;
@@ -50,7 +25,6 @@ int grain::readNodeFile(std::string filename, GrainMesh * mesh)
 	mesh->setVertices(newPoints);
 	mesh->setVerticesLabels(newPLabels);
 	return 0;
->>>>>>> 0353d87cfb2f78520c89fc13cdb5190571f897d2
 }
 
 int grain::readFaceFile(std::string filename, GrainMesh *mesh)
